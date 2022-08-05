@@ -1,8 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final List babyBoomers = [for (var i = 1946; i <= 1964; i++) i];
+
+  final List x = [for (var i = 1965; i <= 1980; i++) i];
+
+  final List millenial = [for (var i = 1981; i <= 1995; i++) i];
+
+  final List genZ = [for (var i = 1996; i <= 2020; i++) i];
+  String message = '';
+
   final TextEditingController _controller = TextEditingController();
+  void callSnackbar(String message, CustomSnackBar snackBar) async {
+    showTopSnackBar(
+      context,
+      snackBar,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +56,38 @@ class HomePage extends StatelessWidget {
               ),
               ElevatedButton(
                 child: const Text('Generate'),
-                onPressed: () {},
+                onPressed: () {
+                  try {
+                    if (_controller.text.isNotEmpty) {
+                      int year = int.parse(_controller.text);
+                      if (babyBoomers.contains(year)) {
+                        message = 'Baby Boomer';
+                      } else if (x.contains(year)) {
+                        message = 'X';
+                      } else if (millenial.contains(year)) {
+                        message = 'Millenial';
+                      } else if (genZ.contains(year)) {
+                        message = 'Gen Z';
+                      } else {
+                        message = 'Ya Ndak Tau Kok Tanya Saya';
+                      }
+                      callSnackbar(
+                        message,
+                        CustomSnackBar.success(
+                          message: message,
+                        ),
+                      );
+                    }
+                    _controller.clear();
+                  } catch (e) {
+                    callSnackbar(
+                      'Masukkan angka saja',
+                      CustomSnackBar.error(
+                        message: message,
+                      ),
+                    );
+                  }
+                },
               ),
             ],
           ),
