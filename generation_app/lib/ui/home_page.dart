@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                       callSnackbar(
                         message,
                         CustomSnackBar.success(
-                          message: message,
+                          message: 'Your generation is $message',
                         ),
                       );
                     }
