@@ -20,10 +20,15 @@ class _HomePageState extends State<HomePage> {
   String message = '';
 
   final TextEditingController _controller = TextEditingController();
-  void callSnackbar(String message, CustomSnackBar snackBar) async {
+
+  ///fungsi untuk menampilkan snackbar
+  void callSnackbar(String message, MaterialColor color) async {
     showTopSnackBar(
       context,
-      snackBar,
+      CustomSnackBar.info(
+        message: 'Your generation is $message',
+        backgroundColor: color,
+      ),
     );
   }
 
@@ -73,18 +78,16 @@ class _HomePageState extends State<HomePage> {
                       }
                       callSnackbar(
                         message,
-                        CustomSnackBar.success(
-                          message: 'Your generation is $message',
-                        ),
+                        message.contains('Ndak')
+                            ? Colors.amber
+                            : Colors.lightGreen,
                       );
                     }
                     _controller.clear();
                   } catch (e) {
                     callSnackbar(
                       'Masukkan angka saja',
-                      CustomSnackBar.error(
-                        message: message,
-                      ),
+                      Colors.red,
                     );
                   }
                 },
