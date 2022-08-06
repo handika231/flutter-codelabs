@@ -1,3 +1,4 @@
+import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
@@ -92,6 +93,13 @@ class _HomePageState extends State<HomePage> {
                   }
                 },
               ),
+              const SizedBox(height: 12),
+              ElevatedButton(
+                child: const Text('Button label'),
+                onPressed: () {
+                  showConfirmationDialog(context: context, title: 'Title');
+                },
+              )
             ],
           ),
         ),
