@@ -1,3 +1,4 @@
+import 'package:animation_flutter_app/pages/animated_controller_page.dart';
 import 'package:flutter/material.dart';
 
 import 'other_page.dart';
@@ -20,8 +21,24 @@ class HomePage extends StatelessWidget {
             ElevatedButton(
               child: const Text('Other Page'),
               onPressed: () {
-                Navigator.push(context, _createRoute());
+                Navigator.push(
+                  context,
+                  _createRoute(
+                    const OtherPage(),
+                  ),
+                );
               },
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  _createRoute(
+                    const AnimatedControllerPage(),
+                  ),
+                );
+              },
+              child: const Text('AnimatedControllerPage'),
             ),
           ],
         ),
@@ -29,13 +46,12 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Route _createRoute() {
+  Route _createRoute(Widget page) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) {
-        return const OtherPage();
+        return page;
       },
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        print(child);
         const begin = Offset(1.0, 0.0);
         const end = Offset.zero;
         const curve = Curves.ease;
