@@ -1,7 +1,7 @@
-import 'package:animation_flutter_app/pages/animated_controller_page.dart';
 import 'package:flutter/material.dart';
 
 import 'other_page.dart';
+import 'pages.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -40,6 +40,17 @@ class HomePage extends StatelessWidget {
               },
               child: const Text('AnimatedControllerPage'),
             ),
+            ElevatedButton(
+              child: const Text('Animated Opacity'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  _createRoute(
+                    const AnimatedOpacityPage(),
+                  ),
+                );
+              },
+            )
           ],
         ),
       ),
