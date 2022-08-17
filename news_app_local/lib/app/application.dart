@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_local/pages/article_web_view.dart';
+import 'package:news_app_local/style/style.dart';
 
 import '../data/news/article.dart';
 import '../pages/article_detail_page.dart';
@@ -13,7 +14,24 @@ class Application extends StatelessWidget {
     return MaterialApp(
       title: 'News List App',
       theme: ThemeData(
-        primarySwatch: Colors.lightBlue,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            primary: secondaryColor,
+            onPrimary: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(0),
+            ),
+          ),
+        ),
+        textTheme: myTextTheme,
+        appBarTheme: const AppBarTheme(
+          elevation: 0,
+        ),
+        colorScheme: Theme.of(context).colorScheme.copyWith(
+              primary: primaryColor,
+              onPrimary: Colors.black,
+              secondary: secondaryColor,
+            ),
       ),
       routes: {
         NewsList.routeName: (context) => const NewsList(),
