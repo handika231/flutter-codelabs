@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_local/pages/article_web_view.dart';
+import 'package:news_app_local/pages/home_page.dart';
 import 'package:news_app_local/style/style.dart';
 
 import '../data/news/article.dart';
 import '../pages/article_detail_page.dart';
-import '../pages/news_list.dart';
+import '../pages/news_list_page.dart';
 
 class Application extends StatelessWidget {
   const Application({Key? key}) : super(key: key);
@@ -34,7 +35,8 @@ class Application extends StatelessWidget {
             ),
       ),
       routes: {
-        NewsList.routeName: (context) => const NewsList(),
+        HomePage.routeName: (context) => const HomePage(),
+        NewsListPage.routeName: (context) => const NewsListPage(),
         ArticleDetailPage.routeName: (context) => ArticleDetailPage(
               article: ModalRoute.of(context)?.settings.arguments as Article,
             ),
@@ -43,7 +45,7 @@ class Application extends StatelessWidget {
             ),
       },
       debugShowCheckedModeBanner: false,
-      initialRoute: NewsList.routeName,
+      initialRoute: HomePage.routeName,
     );
   }
 }
