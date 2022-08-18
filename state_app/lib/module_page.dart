@@ -1,16 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:state_app/done_module_list.dart';
-import 'package:state_app/module_list.dart';
+import 'package:state_app/page/done_page.dart';
+import 'package:state_app/page/list_page.dart';
 
-class ModulePage extends StatefulWidget {
+class ModulePage extends StatelessWidget {
   const ModulePage({Key? key}) : super(key: key);
-
-  @override
-  State<ModulePage> createState() => _ModulePageState();
-}
-
-class _ModulePageState extends State<ModulePage> {
-  final List<String> moduleList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -19,19 +12,19 @@ class _ModulePageState extends State<ModulePage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DoneModuleList(moduleList: moduleList),
-                ),
-              );
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const DonePage()));
             },
-            icon: const Icon(Icons.done),
-          )
+            icon: const Icon(
+              Icons.done,
+            ),
+          ),
         ],
-        title: const Text('Memulai Pemograman Dengan Dart'),
+        title: const Text('Memulai Pemgrograman Dengan Dart'),
+        centerTitle: true,
+        backgroundColor: Colors.amber,
       ),
-      body: ModuleList(doneModuleList: moduleList),
+      body: const ListPage(),
     );
   }
 }
