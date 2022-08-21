@@ -1,6 +1,8 @@
 //create my app
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:state_app/provider/module_provider.dart';
 
 import 'module_page.dart';
 
@@ -13,10 +15,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      home: ModulePage(),
+    return ChangeNotifierProvider<ModuleProvider>(
+      create: (context) => ModuleProvider(),
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        home: ModulePage(),
+      ),
     );
   }
 }

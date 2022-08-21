@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:state_app/provider/module_provider.dart';
 
-class ModuleList extends StatefulWidget {
-  final List<String> doneModuleList;
-  const ModuleList({Key? key, required this.doneModuleList}) : super(key: key);
-
-  @override
-  State<ModuleList> createState() => _ModuleListState();
-}
-
-class _ModuleListState extends State<ModuleList> {
-  final List<String> _moduleList = const [
+class ListPage extends StatelessWidget {
+  final List<String> moduleList = const [
     'Modul 1 - Pengenalan Dart',
     'Modul 2 - Memulai Pemrograman dengan Dart',
     'Modul 3 - Dart Fundamental',
@@ -21,36 +15,36 @@ class _ModuleListState extends State<ModuleList> {
     'Modul 9 - Dart Futures',
     'Modul 10 - Effective Dart',
   ];
+  const ListPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: _moduleList.length,
-      itemBuilder: (BuildContext context, int index) {
-        return ModuleTile(
-          isDone: widget.doneModuleList.contains(_moduleList[index]),
-          onPressed: () {
-            setState(() {
-              widget.doneModuleList.add(_moduleList[index]);
-            });
-          },
-          text: _moduleList[index],
+      itemBuilder: (context, index) {
+        return Consumer<ModuleProvider>(
+          builder: (context, value, child) => TileWidget(
+            isDone: value.moduleList.contains(moduleList[index]),
+            onPressed: () {
+              value.addModule(moduleList[index]);
+            },
+            text: moduleList[index],
+          ),
         );
       },
+      itemCount: moduleList.length,
     );
   }
 }
 
-class ModuleTile extends StatelessWidget {
+class TileWidget extends StatelessWidget {
   final String text;
   final bool isDone;
   final Function() onPressed;
-
-  const ModuleTile(
+  const TileWidget(
       {Key? key,
-      required this.text,
       required this.isDone,
-      required this.onPressed})
+      required this.onPressed,
+      required this.text})
       : super(key: key);
 
   @override
@@ -58,7 +52,7 @@ class ModuleTile extends StatelessWidget {
     return ListTile(
       title: Text(text),
       trailing: isDone
-          ? const Icon(Icons.done)
+          ? const Icon(Icons.check)
           : ElevatedButton(
               onPressed: onPressed,
               child: const Text('Done'),
