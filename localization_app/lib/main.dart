@@ -35,11 +35,35 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(
-          AppLocalizations.of(context)?.helloWorld("Jokowi", "Semarang") ?? "Dika",
-          style: const TextStyle(
-            fontSize: 30,
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              AppLocalizations.of(context)?.helloWorld("Jokowi", "Semarang") ??
+                  "Dika",
+              style: const TextStyle(
+                fontSize: 30,
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Text(
+              '${AppLocalizations.of(context)?.myNumber(1203048)}',
+              style: const TextStyle(
+                fontSize: 30,
+              ),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            Text(
+              '${AppLocalizations.of(context)?.todayDate(DateTime.now())}',
+              style: const TextStyle(
+                fontSize: 30,
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -4,6 +4,26 @@
     "description": "Deskripsi mengenai variabel titleApp"
   },
   "helloWorld": "Halo Dunia! Nama saya {myName} dan saya dari Kota {city}",
+  "myNumber": "Angka : {value}",
+  "todayDate": "Tanggal hari ini : {dateNow}",
+  "@todayDate": {
+    "description": "Deskripsi mengenai variabel todayDate",
+    "placeholders": {
+      "dateNow": {
+        "type": "DateTime",
+        "format": "yMd"
+      }
+    }
+  },
+  "@myNumber": {
+    "description": "Pesan dengan format ini",
+    "placeholders": {
+      "value": {
+        "type": "int",
+        "format": "simpleCurrency"
+      }
+    }
+  },
   "@helloWorld": {
     "description": "Deskripsi variabel helloWorld",
     "placeholders": {

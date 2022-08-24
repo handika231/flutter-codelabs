@@ -1,4 +1,6 @@
 {
   "titleApp": "Localization App",
-  "helloWorld": "Hello World!, My Name is {myName} and I from {city} city"
+  "helloWorld": "Hello World!, My Name is {myName} and I from {city} city",
+  "myNumber": "Number : {value}",
+  "todayDate": "Date for today : {dateNow}"
 }
