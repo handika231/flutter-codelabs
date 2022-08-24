@@ -1,5 +1,6 @@
 import 'package:design_flutter_app/pages/display_snackbar_app.dart';
 import 'package:design_flutter_app/pages/drawer_app.dart';
+import 'package:design_flutter_app/pages/orientation_app.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -35,6 +36,17 @@ class HomePage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => const DisplaySnackbarApp(),
+                    ),
+                  );
+                },
+              ),
+              ElevatedButton(
+                child: const Text('Orientation App'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => OrientationApp(),
                     ),
                   );
                 },
