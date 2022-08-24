@@ -9,7 +9,7 @@ class TabBarApp extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          bottom: const TabBar(
+          title: const TabBar(
             tabs: [
               Tab(icon: Icon(Icons.directions_car)),
               Tab(icon: Icon(Icons.directions_transit)),
