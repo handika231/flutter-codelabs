@@ -1,6 +1,7 @@
 import 'package:design_flutter_app/pages/display_snackbar_app.dart';
 import 'package:design_flutter_app/pages/drawer_app.dart';
 import 'package:design_flutter_app/pages/orientation_app.dart';
+import 'package:design_flutter_app/pages/tabbar_app.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,6 +10,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
       appBar: AppBar(
         title: const Text('Flutter  ~ Design'),
       ),
@@ -47,6 +52,17 @@ class HomePage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => OrientationApp(),
+                    ),
+                  );
+                },
+              ),
+              ElevatedButton(
+                child: const Text('TabBar App'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TabBarApp(),
                     ),
                   );
                 },
