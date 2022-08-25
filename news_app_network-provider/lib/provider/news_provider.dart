@@ -27,6 +27,7 @@ class NewsProvider extends ChangeNotifier {
       notifyListeners();
       final data = await service.getArticle();
       if (data.articles.isEmpty) {
+        //CHECK LIST
         _state = ResultState.noData;
         notifyListeners();
         return _message = 'No Data';
