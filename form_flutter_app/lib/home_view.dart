@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'focus_textfiled_view.dart';
 import 'form_validation_view.dart';
 
 class HomeView extends StatelessWidget {
@@ -19,6 +20,20 @@ class HomeView extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => FormValidationView(),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              child: const Text('Focus TextField'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const FocusTextFieldView(),
                   ),
                 );
               },

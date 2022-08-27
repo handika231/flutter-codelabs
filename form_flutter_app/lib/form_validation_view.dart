@@ -17,6 +17,7 @@ class FormValidationView extends StatelessWidget {
           child: Column(
             children: [
               TextFormField(
+                autofocus: true,
                 decoration: const InputDecoration(
                   labelText: 'Email',
                 ),
