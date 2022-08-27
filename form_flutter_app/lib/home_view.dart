@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_flutter_app/retrieve_text_view.dart';
 
 import 'focus_textfiled_view.dart';
 import 'form_validation_view.dart';
@@ -34,6 +35,20 @@ class HomeView extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const FocusTextFieldView(),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              child: const Text('Retrieve TextField'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const RetrieveTextView(),
                   ),
                 );
               },
